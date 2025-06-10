@@ -11,7 +11,7 @@ config:
 	# dbname, host, port, username, password keys
     {{- range $db_name, $config := environment "DB_"}}
 	- name: {{- $db_name | trimPrefix "DB_" | lower -}}
-          engine: postgres
+     engine: postgres
 	  {{with $decoded := ($config | mustFromJson)}}
 	  {{range $key, $value := $decoded}}
       {{- $key }}: {{ $value }}
